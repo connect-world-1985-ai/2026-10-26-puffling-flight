@@ -1,0 +1,74 @@
+
+> puffling-flight@1.0.0 test:unit
+> node --test tests/unit.test.mjs
+
+TAP version 13
+# Subtest: string tables: same keys, no empty strings, Chinese is Chinese
+ok 1 - string tables: same keys, no empty strings, Chinese is Chinese
+  ---
+  duration_ms: 2.526789
+  ...
+# Subtest: every data-i18n key used in index.html exists
+ok 2 - every data-i18n key used in index.html exists
+  ---
+  duration_ms: 1.028409
+  ...
+# Subtest: language detection and formatting
+ok 3 - language detection and formatting
+  ---
+  duration_ms: 0.406115
+  ...
+# Subtest: storage: round trip, corrupt data, blocked storage
+ok 4 - storage: round trip, corrupt data, blocked storage
+  ---
+  duration_ms: 0.61688
+  ...
+# Subtest: flap physics: rise height and apex time
+ok 5 - flap physics: rise height and apex time
+  ---
+  duration_ms: 1.53406
+  ...
+# Subtest: fall speed is capped and the sea ends the run
+ok 6 - fall speed is capped and the sea ends the run
+  ---
+  duration_ms: 1.354777
+  ...
+# Subtest: circle vs rectangle collision
+ok 7 - circle vs rectangle collision
+  ---
+  duration_ms: 0.209461
+  ...
+# Subtest: difficulty ramps monotonically and stays inside limits
+ok 8 - difficulty ramps monotonically and stays inside limits
+  ---
+  duration_ms: 0.385599
+  ...
+# Subtest: medals
+ok 9 - medals
+  ---
+  duration_ms: 0.261095
+  ...
+# Subtest: the game is beatable: a simple bot reaches 120 points on every screen width
+ok 10 - the game is beatable: a simple bot reaches 120 points on every screen width
+  ---
+  duration_ms: 193.976082
+  ...
+# Subtest: deterministic for the same seed and inputs
+ok 11 - deterministic for the same seed and inputs
+  ---
+  duration_ms: 2.959047
+  ...
+# Subtest: hover mode never spawns columns or kills the bird
+ok 12 - hover mode never spawns columns or kills the bird
+  ---
+  duration_ms: 0.549481
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 346.127152

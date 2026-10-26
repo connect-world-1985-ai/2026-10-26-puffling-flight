@@ -1,0 +1,20 @@
+
+> puffling-flight@1.0.0 test:e2e
+> node tests/e2e.mjs
+
+browser chrome 156.0.8078.47 at http://127.0.0.1:42883/play/
+PASS T01 desktop loads clean: no errors, no external requests, English menu
+PASS T02 keyboard flow: Space -> ready -> playing, flap rises, held key = one flap, audio unlocks
+PASS T03 no input -> crash -> game-over panel, score 0, restart lockout
+PASS T04 autopilot scores, pause freezes the world, resume counts down, best persists after reload
+PASS T05 mute toggle (M key and button) persists
+PASS T06 Chinese browser -> Chinese UI; toggle to English; choice survives reload
+PASS T07 every text node from the table is filled in both languages
+PASS T08 settings: toggles, language buttons, Escape closes
+PASS T09 hidden tab auto-pauses
+PASS T10 layouts: small, wide and very wide windows keep the whole stage on screen
+  perf normal fps=59.8 p95=0.40ms max=2.20ms | 4x throttle fps=60.3 p95=1.20ms
+PASS T11 performance: 60 fps and frame work budget (normal and 4x CPU throttle)
+PASS T12 phone portrait (iPhone 13 profile): tap to play, full-bleed, no scroll, pause button works
+PASS T13 phone landscape (Pixel 7 profile) and Chinese locale
+SUMMARY browser=chrome pass=13 fail=0

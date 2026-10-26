@@ -1,0 +1,139 @@
+{
+  "identical": 16,
+  "total": 19,
+  "rows": [
+    {
+      "planPath": "index.html",
+      "repoPath": "play/index.html",
+      "identical": true,
+      "plan": "c3b921fde0551d35960061c195e0cbea01ba06f9fcfb45f3d02b1723baa0fa26",
+      "actual": "c3b921fde0551d35960061c195e0cbea01ba06f9fcfb45f3d02b1723baa0fa26"
+    },
+    {
+      "planPath": "styles.css",
+      "repoPath": "play/styles.css",
+      "identical": true,
+      "plan": "cbbace4a8cd32a2f5aeb566a7a1d5920726f203be5dc22ffc8f7916003db1e61",
+      "actual": "cbbace4a8cd32a2f5aeb566a7a1d5920726f203be5dc22ffc8f7916003db1e61"
+    },
+    {
+      "planPath": "src/config.js",
+      "repoPath": "play/src/config.js",
+      "identical": true,
+      "plan": "6c2af42793daf1c8997dec348f0b0d77a7d7cba725c5d72b1a113159b03bff4e",
+      "actual": "6c2af42793daf1c8997dec348f0b0d77a7d7cba725c5d72b1a113159b03bff4e"
+    },
+    {
+      "planPath": "src/sim.js",
+      "repoPath": "play/src/sim.js",
+      "identical": true,
+      "plan": "a760aa680c06060b91ef8832fee40589d4367c52739b66e41c019e603defb62f",
+      "actual": "a760aa680c06060b91ef8832fee40589d4367c52739b66e41c019e603defb62f"
+    },
+    {
+      "planPath": "src/i18n.js",
+      "repoPath": "play/src/i18n.js",
+      "identical": true,
+      "plan": "a1b49ddfc73c6db384e7f250332262d8a74600ef9d02a679ae3ae5401a4ae3d8",
+      "actual": "a1b49ddfc73c6db384e7f250332262d8a74600ef9d02a679ae3ae5401a4ae3d8"
+    },
+    {
+      "planPath": "src/storage.js",
+      "repoPath": "play/src/storage.js",
+      "identical": true,
+      "plan": "19590d56998dadacb8c9278fb63db702be6d219d53a2003c265c3f931ab9ae78",
+      "actual": "19590d56998dadacb8c9278fb63db702be6d219d53a2003c265c3f931ab9ae78"
+    },
+    {
+      "planPath": "src/audio.js",
+      "repoPath": "play/src/audio.js",
+      "identical": true,
+      "plan": "58d1210f8f8cffb172b2ad89d1f24e004d6d3eafdae7b3e876e1e0a407bddf26",
+      "actual": "58d1210f8f8cffb172b2ad89d1f24e004d6d3eafdae7b3e876e1e0a407bddf26"
+    },
+    {
+      "planPath": "src/render.js",
+      "repoPath": "play/src/render.js",
+      "identical": true,
+      "plan": "b388b49447c0b0eedfaf9691498152f977f67e046c75a683689b6348d82f9d5c",
+      "actual": "b388b49447c0b0eedfaf9691498152f977f67e046c75a683689b6348d82f9d5c"
+    },
+    {
+      "planPath": "src/main.js",
+      "repoPath": "play/src/main.js",
+      "identical": true,
+      "plan": "b480517ac70b293a42f56b652995a1af098767b7bebbbd58e69ded1a01c6c59a",
+      "actual": "b480517ac70b293a42f56b652995a1af098767b7bebbbd58e69ded1a01c6c59a"
+    },
+    {
+      "planPath": "assets/icon.svg",
+      "repoPath": "play/assets/icon.svg",
+      "identical": true,
+      "plan": "ccb01ee74e78fb2c046ed0879717f95ec3a99c99b36630f8c922ce28f5062434",
+      "actual": "ccb01ee74e78fb2c046ed0879717f95ec3a99c99b36630f8c922ce28f5062434"
+    },
+    {
+      "planPath": "tools/serve.mjs",
+      "repoPath": "tools/serve.mjs",
+      "identical": true,
+      "plan": "c498d78892c121dccc81f71df958ae5eebbb0602b55090c91a8782d77b83e805",
+      "actual": "c498d78892c121dccc81f71df958ae5eebbb0602b55090c91a8782d77b83e805"
+    },
+    {
+      "planPath": "tools/make-icons.mjs",
+      "repoPath": "tools/make-icons.mjs",
+      "identical": false,
+      "plan": "1e4ed67e0cc1e3798c2cda1328ea555baace417fe7d0fae4522098b619d17d43",
+      "actual": "244973cd7556972571ed0fde92c5e4877b8f8d157ed5663faf29ee797d0c772f"
+    },
+    {
+      "planPath": "tests/unit.test.mjs",
+      "repoPath": "tests/unit.test.mjs",
+      "identical": false,
+      "plan": "0462aa5203a1debfdea84fa6479eb3375555675bcc9f3bbb966d2a4b67e4ebcf",
+      "actual": "d34eb3cec642954849ba292ba83c4fd50308464d4d3df3d27b46dad78198930b"
+    },
+    {
+      "planPath": "tests/e2e.mjs",
+      "repoPath": "tests/e2e.mjs",
+      "identical": false,
+      "plan": "d15ddb62fbd5ed55723de877ae74c3d3122edc588aa782a48d2f5c46ec5157b0",
+      "actual": "f7a8d83f3385f3e1b562dcc7dda12f98ecc1b72e97de8c5a52f5d3a9e789cfde"
+    },
+    {
+      "planPath": "package.json",
+      "repoPath": "package.json",
+      "identical": true,
+      "plan": "0af3fa709552615c64da0deadcb2ce27c311d7b90489958e4631729989b39187",
+      "actual": "0af3fa709552615c64da0deadcb2ce27c311d7b90489958e4631729989b39187"
+    },
+    {
+      "planPath": ".gitignore",
+      "repoPath": ".gitignore",
+      "identical": true,
+      "plan": "84cd6aba0bc2387660a5831ddcf6494fdf14bfe9d32093f871f1231d3353fc67",
+      "actual": "84cd6aba0bc2387660a5831ddcf6494fdf14bfe9d32093f871f1231d3353fc67"
+    },
+    {
+      "planPath": "README.md",
+      "repoPath": "README.md",
+      "identical": true,
+      "plan": "a046ec10e3dbd7edb8391ff985cce6752eb5dadb656a3cba0bc135540fac64a8",
+      "actual": "a046ec10e3dbd7edb8391ff985cce6752eb5dadb656a3cba0bc135540fac64a8"
+    },
+    {
+      "planPath": "LICENSE",
+      "repoPath": "LICENSE",
+      "identical": true,
+      "plan": "247593549bea0d8a270b5dabbda6e7d40a1420318f4d592e9cb325830abbc17f",
+      "actual": "247593549bea0d8a270b5dabbda6e7d40a1420318f4d592e9cb325830abbc17f"
+    },
+    {
+      "planPath": "tools/extract-plan.mjs",
+      "repoPath": "tools/extract-plan.mjs",
+      "identical": true,
+      "plan": "69a490b91d999ee94c0dd1a80a864333e34213bf9c1b17188e2bcff384038afe",
+      "actual": "69a490b91d999ee94c0dd1a80a864333e34213bf9c1b17188e2bcff384038afe"
+    }
+  ]
+}

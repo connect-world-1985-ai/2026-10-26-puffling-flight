@@ -1,0 +1,5 @@
+Step 10 (optional) WebKit run: SKIPPED on this Linux build box, as the plan predicts (F5).
+`npx playwright-core install webkit` succeeded; `PW_BROWSER=webkit npm run test:e2e` stopped at browserType.launch:
+  Host system is missing dependencies to run browsers. Missing libraries:
+    libevent-2.1.so.7, libgstgl-1.0.so.0, libgstcodecparsers-1.0.so.0, libavif.so.16, libmanette-0.2.so.0, libenchant-2.so.2
+Installing them needs sudo; per the plan, no install-deps/sudo was run. Safari is covered by the optional real-phone check (plan §4b).

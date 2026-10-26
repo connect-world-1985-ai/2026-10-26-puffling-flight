@@ -1,0 +1,5 @@
+node_modules/
+test-output/
+.pw-browsers/
+.DS_Store
+Thumbs.db

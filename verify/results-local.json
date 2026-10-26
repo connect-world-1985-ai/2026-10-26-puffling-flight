@@ -1,0 +1,219 @@
+{
+  "label": "local",
+  "root": "http://127.0.0.1:33345/",
+  "browser": "chrome 156.0.8078.47",
+  "started": "2026-10-26T11:39:57.285Z",
+  "checks": [
+    {
+      "id": "W0",
+      "name": "website + game are self-contained: no http(s):// or protocol-relative URLs in src/href/url()",
+      "detail": {
+        "filesScanned": 12
+      },
+      "pass": true
+    },
+    {
+      "id": "V1",
+      "name": "trailer: 30-45 s, 1280x720, h264 yuv420p + aac, <= 15 MB, faststart",
+      "detail": {
+        "duration": 43.32,
+        "size": 4205120,
+        "video": "h264 1280x720 yuv420p",
+        "audio": "aac"
+      },
+      "pass": true
+    },
+    {
+      "id": "W1",
+      "name": "website desktop: loads clean, all sections, Play now -> ./play/, no horizontal overflow, images load",
+      "detail": {
+        "images": "all loaded",
+        "overflow": {
+          "sw": 1280,
+          "iw": 1280,
+          "bw": 1280
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W2",
+      "name": "website trailer plays in the page: readyState >= 3 and currentTime advances",
+      "detail": {
+        "readyState": 4,
+        "t0": 0.005137,
+        "t1": 1.965408,
+        "duration": 43.32,
+        "w": 1280,
+        "h": 720,
+        "src": "media/trailer.mp4"
+      },
+      "pass": true
+    },
+    {
+      "id": "W3",
+      "name": "website phone (Pixel 7, Chromium emulation): no horizontal overflow, Play now visible and tappable",
+      "detail": {
+        "overflow": {
+          "sw": 412,
+          "iw": 412,
+          "bw": 412
+        },
+        "playNowBox": {
+          "x": 120.546875,
+          "y": 491.859375,
+          "width": 170.890625,
+          "height": 63.828125
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W4",
+      "name": "website phone (iPhone 13, Chromium emulation): no horizontal overflow, Play now visible and tappable",
+      "detail": {
+        "overflow": {
+          "sw": 390,
+          "iw": 390,
+          "bw": 390
+        },
+        "playNowBox": {
+          "x": 109.546875,
+          "y": 500.453125,
+          "width": 170.890625,
+          "height": 63.828125
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W5",
+      "name": "website locales: en-US English; zh-CN / zh-TW / zh-HK Simplified Chinese",
+      "detail": {
+        "en-US": {
+          "lang": "en",
+          "title": "Puffling Flight",
+          "html": "en"
+        },
+        "zh-CN": {
+          "lang": "zh",
+          "title": "小海鹦飞飞",
+          "html": "zh-Hans"
+        },
+        "zh-TW": {
+          "lang": "zh",
+          "title": "小海鹦飞飞",
+          "html": "zh-Hans"
+        },
+        "zh-HK": {
+          "lang": "zh",
+          "title": "小海鹦飞飞",
+          "html": "zh-Hans"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W6",
+      "name": "website language toggle: switches instantly, persists after reload, and the game opens in the same language",
+      "pass": true
+    },
+    {
+      "id": "W7",
+      "name": "website Play now (desktop click) lands on /play/ and the game is playable",
+      "detail": {
+        "url": "play/"
+      },
+      "pass": true
+    },
+    {
+      "id": "G1",
+      "name": "game desktop: loads clean at /play/, English menu",
+      "pass": true
+    },
+    {
+      "id": "G2",
+      "name": "game: start by mouse click, flap rises, columns scroll, score increments, collision -> game over, restart, best persists",
+      "detail": {
+        "scoreReached": 4,
+        "overScore": 4,
+        "bestAfterReload": 4
+      },
+      "pass": true
+    },
+    {
+      "id": "G3",
+      "name": "game: start with Space key, Space flaps, P pauses/resumes",
+      "pass": true
+    },
+    {
+      "id": "G4",
+      "name": "game audio: no audio before input; after a gesture AudioContext running + music rendered; M and button mute",
+      "detail": {
+        "audioState": "running",
+        "audioRenderMs": 469
+      },
+      "pass": true
+    },
+    {
+      "id": "G5",
+      "name": "game locales: en-US English; zh-CN / zh-TW / zh-HK Simplified Chinese; EN/中文 chip toggles",
+      "detail": {
+        "en-US": {
+          "lang": "en",
+          "title": "Puffling Flight"
+        },
+        "zh-CN": {
+          "lang": "zh",
+          "title": "小海鹦飞飞"
+        },
+        "zh-TW": {
+          "lang": "zh",
+          "title": "小海鹦飞飞"
+        },
+        "zh-HK": {
+          "lang": "zh",
+          "title": "小海鹦飞飞"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "G6",
+      "name": "game phone (Pixel 7, Chromium emulation): real touch taps start + flap, fits without scrolling, playable, game over + restart by tap",
+      "detail": {
+        "sw": 412,
+        "sh": 839,
+        "iw": 412,
+        "ih": 839,
+        "stage": [
+          0,
+          0,
+          412,
+          839
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "G7",
+      "name": "game phone (iPhone 13, Chromium emulation): real touch taps start + flap, fits without scrolling, playable, game over + restart by tap",
+      "detail": {
+        "sw": 390,
+        "sh": 664,
+        "iw": 390,
+        "ih": 664,
+        "stage": [
+          0,
+          0,
+          390,
+          664
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "finished": "2026-10-26T11:41:22.930Z",
+  "pass": 16,
+  "fail": 0
+}

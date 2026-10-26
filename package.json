@@ -1,0 +1,19 @@
+{
+  "name": "puffling-flight",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Puffling Flight: an original one-button flying game. Static site, no build step.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "serve": "node tools/serve.mjs 4173",
+    "test:unit": "node --test tests/unit.test.mjs",
+    "test:e2e": "node tests/e2e.mjs",
+    "test": "node --test tests/unit.test.mjs && node tests/e2e.mjs",
+    "icons": "node tools/make-icons.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.64.1"
+  }
+}

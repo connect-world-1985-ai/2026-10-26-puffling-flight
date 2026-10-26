@@ -1,0 +1,17 @@
+
+> puffling-flight@1.0.0 test:e2e
+> node tests/e2e.mjs
+
+browser firefox 157.0 at http://127.0.0.1:38923/play/
+PASS T01 desktop loads clean: no errors, no external requests, English menu
+  note: firefox AudioContext state = suspended
+PASS T02 keyboard flow: Space -> ready -> playing, flap rises, held key = one flap, audio unlocks
+PASS T03 no input -> crash -> game-over panel, score 0, restart lockout
+PASS T04 autopilot scores, pause freezes the world, resume counts down, best persists after reload
+PASS T05 mute toggle (M key and button) persists
+PASS T06 Chinese browser -> Chinese UI; toggle to English; choice survives reload
+PASS T07 every text node from the table is filled in both languages
+PASS T08 settings: toggles, language buttons, Escape closes
+PASS T09 hidden tab auto-pauses
+PASS T10 layouts: small, wide and very wide windows keep the whole stage on screen
+SUMMARY browser=firefox pass=10 fail=0
