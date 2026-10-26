@@ -1,0 +1,17 @@
+acceptance live at https://connect-world-1985-ai.github.io/2026-10-26-puffling-flight/ (chrome 156.0.8078.47)
+PASS V1 trailer: 30-45 s, 1280x720, h264 yuv420p + aac, <= 15 MB, faststart
+PASS W1 website desktop: loads clean, all sections, Play now -> ./play/, no horizontal overflow, images load
+PASS W2 website trailer plays in the page: readyState >= 3 and currentTime advances
+PASS W3 website phone (Pixel 7, Chromium emulation): no horizontal overflow, Play now visible and tappable
+PASS W4 website phone (iPhone 13, Chromium emulation): no horizontal overflow, Play now visible and tappable
+PASS W5 website locales: en-US English; zh-CN / zh-TW / zh-HK Simplified Chinese
+PASS W6 website language toggle: switches instantly, persists after reload, and the game opens in the same language
+PASS W7 website Play now (desktop click) lands on /play/ and the game is playable
+PASS G1 game desktop: loads clean at /play/, English menu
+PASS G2 game: start by mouse click, flap rises, columns scroll, score increments, collision -> game over, restart, best persists
+PASS G3 game: start with Space key, Space flaps, P pauses/resumes
+PASS G4 game audio: no audio before input; after a gesture AudioContext running + music rendered; M and button mute
+PASS G5 game locales: en-US English; zh-CN / zh-TW / zh-HK Simplified Chinese; EN/中文 chip toggles
+PASS G6 game phone (Pixel 7, Chromium emulation): real touch taps start + flap, fits without scrolling, playable, game over + restart by tap
+PASS G7 game phone (iPhone 13, Chromium emulation): real touch taps start + flap, fits without scrolling, playable, game over + restart by tap
+SUMMARY acceptance=live pass=15 fail=0

@@ -111,6 +111,19 @@ extracted by the plan's own extractor (`CHECKSUMS_OK 18`). Differences:
 Rough share invented by the builder: **0 %** of the game itself (plan code used as-is); about **35 %** of the whole repo
 by decisions, all of it in the website, trailer and verification that the plan never covered.
 
-## Verification
+## Verification (2026-10-26, headless Google Chrome 156 via playwright-core 1.64.1)
 
-See `verify/results-local.json`, `verify/results-live.json`, `verify/logs/` and `verify/shots-*/`.
+| Check | Local | Live GitHub Pages |
+|---|---|---|
+| Plan Step 4 extractor | `CHECKSUMS_OK 18` | — |
+| Plan Step 7 unit tests | 12/12 pass | — |
+| Plan Step 8 browser suite (Chrome, desktop + iPhone 13 + Pixel 7 landscape) at `/play/` | 13/13 pass | 13/13 pass |
+| Plan Step 9 browser suite (Firefox 157) | 10/10 pass | — |
+| Plan Step 10 WebKit (optional) | skipped: missing Linux libraries (as predicted) | — |
+| Plan T11 performance | fps 59.8, p95 0.40 ms; 4× throttle fps 60.3, p95 1.20 ms | fps 60.3, p95 0.40 ms; 4× throttle p95 1.40 ms |
+| Plan Step 11 names / size | `NAMES_CLEAN`, game 108 KB | — |
+| Builder acceptance `verify/acceptance.mjs` (website, game, phones, locales, audio, trailer) | 16/16 pass | 15/15 pass (static grep W0 is local-only) |
+| HTTP status `/`, `/play/`, `/media/trailer.mp4` | — | 200, 200, 200 |
+| Trailer (ffprobe) | 43.32 s, 1280×720 H.264 High yuv420p 25 fps + AAC-LC 48 kHz stereo, 4,205,120 bytes, faststart | same file, plays in the page (readyState 4, currentTime advances) |
+
+Details: `verify/results-local.json`, `verify/results-live.json`, `verify/plan-file-hashes.json`, `verify/logs/`, and screenshots in `verify/shots-local/` and `verify/shots-live/`.
