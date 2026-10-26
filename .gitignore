@@ -3,3 +3,4 @@ test-output/
 .pw-browsers/
 .DS_Store
 Thumbs.db
+verify/shots-local-server/

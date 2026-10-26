@@ -1,5 +1,5 @@
 {
-  "identical": 16,
+  "identical": 15,
   "total": 19,
   "rows": [
     {
@@ -117,9 +117,9 @@
     {
       "planPath": "README.md",
       "repoPath": "README.md",
-      "identical": true,
+      "identical": false,
       "plan": "a046ec10e3dbd7edb8391ff985cce6752eb5dadb656a3cba0bc135540fac64a8",
-      "actual": "a046ec10e3dbd7edb8391ff985cce6752eb5dadb656a3cba0bc135540fac64a8"
+      "actual": "0f1962b80802077575a41dc08c8178e517a524b37009d74c61ab9fc13a4a3928"
     },
     {
       "planPath": "LICENSE",

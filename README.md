@@ -11,9 +11,14 @@ the sky turns from dawn to day, sunset and night as your score grows.
 
 | Path on the site | What it is |
 |---|---|
-| `/` (`index.html`, `site.css`, `site.js`) | Official website: hero, trailer, screenshots, features, how to play, **Play now** button → `./play/`. Bilingual EN / 中文 |
+| `/` (`index.html`, `site.css`, `site.js`) | Official launch website (premiere style): cinematic-trailer hero, posters, gameplay trailer, key-art gallery + screenshots, features, how to play, end band, **Play now** → `./play/`. Bilingual EN / 中文 |
 | `/play/` (`play/index.html`, `play/styles.css`, `play/src/`, `play/assets/`) | The full game |
-| `/media/trailer.mp4`, `/media/trailer-poster.png` | 43 s launch trailer (1280×720 H.264 + AAC) and its poster |
+| `/media/cinematic-trailer.mp4`, `/media/cinematic-trailer-poster.jpg` | 40.8 s cinematic launch trailer (1280×720 H.264 + AAC), the website's hero video, and its poster frame (logo + Play now end card) |
+| `/media/trailer.mp4`, `/media/trailer-poster.png` | 43 s gameplay trailer (1280×720 H.264 + AAC) and its poster, further down the website |
+| `/media/posters/` | The three launch posters from the art pack, 1200×1800: `.webp` on the page, `.jpg` as the download |
+| `/media/gallery/`, `/media/launch/` | Key-art stills (`.webp`), the hero poster still and end-band still (`.jpg`), web-size logos (`.webp`) |
+| `/assets/icons/`, `/assets/fonts/` | The pack's six SVG feature icons; the two display fonts subsetted to WOFF2, with their SIL OFL licence files |
+| `src/trailer/` | Dev-only cinematic-trailer pipeline: `shots.json` (shot list), `cinematic.py` (picture), `score.py` (music) |
 | `/media/shot-*.jpg` | Screenshots used on the website (all taken from the real game) |
 | `tests/`, `tools/`, `verify/` | Dev-only: the plan's unit and browser tests, build tools, the builder's acceptance checks, results and evidence screenshots |
 
@@ -54,8 +59,17 @@ SITE_BASE_URL=https://<pages-site>/ node verify/acceptance.mjs   # same checks a
 node verify/check-plan-files.mjs # compares the files with the plan's SHA-256 list
 ```
 
-The game and the website have no build step. The trailer is rebuilt with `node tools/record-trailer.mjs && python3 tools/make-trailer.py`
+The game and the website have no build step. The gameplay trailer is rebuilt with `node tools/record-trailer.mjs && python3 tools/make-trailer.py`
 (needs Chrome, ffmpeg with libass, Python 3 + numpy, and the Noto Sans CJK font).
+
+The cinematic trailer is rebuilt with (needs the UI/UX launch-art pack next to the repo, or `PUFFLING_ART_PACK=<folder>`):
+
+```sh
+node tools/record-cinematic.mjs          # real gameplay sessions + per-frame event logs -> test-output/cinematic/
+node tools/render-music-stems.mjs        # the game's own music, one layer per stem, + its 7 SFX (OfflineAudioContext)
+python3 src/trailer/cinematic.py src/trailer/shots.json   # 25 shots, 17 bars at 100 BPM -> media/cinematic-trailer.mp4
+python3 tools/subset-fonts.py ../2026-10-26-puffling-flight-launch-art/fonts   # website display-font subsets
+```
 
 ## Credits and licences
 
@@ -68,8 +82,17 @@ The game and the website have no build step. The trailer is rebuilt with `node t
   (`tools/make-trailer.py`). Same MIT licence.
 - Trailer captions font: **Noto Sans CJK SC Bold** (© Google / Adobe, **SIL Open Font License 1.1**), burned into the video pixels
   by ffmpeg/libass; no font file is shipped.
-- Website and game fonts: the visitor's own system fonts; no font files are shipped.
-- Website emoji icons: the visitor's system emoji font.
+- Cinematic trailer (`media/cinematic-trailer.mp4`): key-art stills, title cards and logo by the project's UI/UX designer
+  (launch-art pack), real gameplay recorded from this game (`tools/record-cinematic.mjs`), cut by `src/trailer/cinematic.py`.
+  **Music:** only the game's own code-generated music and sound effects (`play/src/audio.js`, rendered stem by stem by
+  `tools/render-music-stems.mjs`, arranged with numpy by `src/trailer/score.py`): intro (arpeggio) → rise (+bass, +hats/snare,
+  +kick, snare roll, one silent beat) → drop at 0:19.2 (full loop + lead) → hard cut on the crash → C-major resolve under the logo.
+  No licensed or third-party music. No voice-over. Same MIT licence.
+- Website display fonts (bundled in `assets/fonts/`, subsetted to the characters the site uses, `font-display: swap`):
+  **Lilita One** (Copyright 2011 Juan Montoreano, Reserved Font Name Lilita; SIL Open Font License 1.1, `OFL-LilitaOne.txt`) and **ZCOOL KuaiLe / 站酷快乐体**
+  (Copyright 2018 The ZCOOL KuaiLe Project Authors; SIL Open Font License 1.1, `OFL-ZCOOLKuaiLe.txt`). Body text uses the visitor's system fonts.
+- Posters, key-art stills, title cards, logo and the six feature icons (`assets/icons/`): from the project's UI/UX launch-art pack.
+- Game fonts: the visitor's own system fonts; the game ships no font files.
 - Test tooling (not part of the site): playwright-core, Apache-2.0.
 
 This is an independent, original game in the one-button "tap to fly" genre; it uses no third-party art, names or sounds.
@@ -106,12 +129,38 @@ extracted by the plan's own extractor (`CHECKSUMS_OK 18`). Differences:
 | 7 | Local server has no HTTP Range support, so a `<video preload=metadata>` request is cancelled by the browser | Acceptance treats only that browser-aborted media request as benign; real playback is tested separately (readyState ≥ 3, currentTime advances) |
 | 8 | Plan's env file lives in `$HOME` | Shell variables instead (Deviation 4) |
 | 9 | Website poster/screenshots size | Screenshots cropped to the game stage and saved as JPEG (~35–95 KB each) |
-| 10 | Emoji in feature cards depend on the system emoji font | Accepted; purely decorative, `aria-hidden` |
+| 10 | Emoji in feature cards depend on the system emoji font | Replaced in phase 2 by the pack's SVG icons (inline, `aria-hidden`, orange chip from `ICONS.md`) |
+
+### Phase 2 (cinematic launch) GAPS
+
+| # | Gap | Decision |
+|---|---|---|
+| 11 | **Wording mismatch:** the designer's end card `tc-05` (and `WEBSITE.md`) read **Play now / 立即游玩**; the owner's brief says **Play now / 立即开玩** | The pack is not edited: the trailer's end card shows `tc-05` as delivered (**立即游玩**). The website's Play-now buttons use the brief's **立即开玩** (it fits the design). Flagged for the project manager and the designer to pick one |
+| 12 | `WEBSITE.md` asks for a 1920×1080 hero video plus a 1280×720 one | Only 1280×720 is rendered (the owner's 720p cap); the one file serves every screen |
+| 13 | `WEBSITE.md` links the lightbox download to the 1.1–1.4 MB `.png` poster masters | Linked the pack's optimised `.jpg` (184–228 KB); the page shows the `.webp` (109–141 KB). The `.png` masters stay in the pack only |
+| 14 | The pack's posters carry the GitHub Pages address in small print, and the host is currently unavailable | Posters used unchanged (pack is read-only). The trailer's end card has no address line (removed from the shot list) |
+| 15 | The hero loops the whole cinematic cut, gameplay HUD included, behind the centred logo | A soft radial veil over the video behind the title, on top of the pack's gradient scrim; poster frame is still-01, never still-07 (still-07 only in the gallery and in the trailer's drop, as in the shot list) |
+| 16 | "▶ Watch trailer" target | Opens the cinematic cut with sound in a `<dialog>` lightbox (hero pauses, resumes on close) |
+| 17 | Where the screenshots go | Kept below the key-art stills in the Gallery section |
+| 18 | Pack's prebuilt web font subsets vs this page's text | Re-subsetted from the pack's OFL TTFs to exactly the site's characters (`tools/subset-fonts.py`): 6.5 KB + 35 KB; Noto Sans SC kept off the site (print-only, per `WEBSITE.md`) |
+| 19 | The pack's icon `.svg` files carry the standard `xmlns="http://www.w3.org/2000/svg"` identifier | Kept in `assets/icons/` as delivered (it is a namespace name, never fetched); the inline copies in `index.html` drop it, so the page has no `http(s)://` strings |
+| 20 | GitHub account suspended during phase 2 (403 / Pages 404) | Phase 2 is committed **locally only**, not pushed; verified against a local static server (`verify/static-server.mjs`, Range support, real MIME types) as a Pages stand-in |
 
 Rough share invented by the builder: **0 %** of the game itself (plan code used as-is); about **35 %** of the whole repo
 by decisions, all of it in the website, trailer and verification that the plan never covered.
 
-## Verification (2026-10-26, headless Google Chrome 156 via playwright-core 1.64.1)
+## Phase 2 verification (2026-10-26 evening, local only: headless Google Chrome 156, `verify/static-server.mjs` on 127.0.0.1)
+
+`SITE_BASE_URL=http://127.0.0.1:8765/ LABEL=local-server node verify/acceptance.mjs` → **26/26 pass** (`verify/results-local-server.json`):
+the original website/game/locale/audio/phone checks plus C1–C8: cinematic-trailer ffprobe, HTTP 200 for 36 URLs (site, both trailers + posters,
+3 posters ×2 formats, 7 stills, 6 icons, fonts + licences, logos, `/play/`), hero autoplay muted loop (readyState 4, currentTime advancing,
+unmute / pause), reduced-motion poster-only hero, every image loads (naturalWidth > 0), SVG icons in the chip with no emoji left, lightbox
+(arrows, Esc, download link, cinematic-with-sound dialog), and EN / zh-CN / zh-TW / zh-HK + toggle on desktop, Pixel 7 and iPhone 13 with no
+horizontal overflow, no console errors and no requests to other hosts; the old gameplay trailer still plays below the posters.
+Plan unit tests 12/12, plan browser suite 13/13 at `/play/`; `play/` unchanged (`git diff` empty, SHA-256 match).
+Cinematic trailer frame grabs: `verify/frames/` (contact sheets `sheet.jpg`, `sheet2.jpg`). Screenshots: `verify/shots-launch/`.
+
+## Phase 1 verification (2026-10-26, headless Google Chrome 156 via playwright-core 1.64.1)
 
 | Check | Local | Live GitHub Pages |
 |---|---|---|

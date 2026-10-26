@@ -1,0 +1,404 @@
+{
+  "label": "local-server",
+  "root": "http://127.0.0.1:8765/",
+  "browser": "chrome 156.0.8078.47",
+  "started": "2026-10-26T13:22:28.920Z",
+  "checks": [
+    {
+      "id": "W0",
+      "name": "website + game are self-contained: no http(s):// or protocol-relative URLs in src/href/url()",
+      "detail": {
+        "filesScanned": 13
+      },
+      "pass": true
+    },
+    {
+      "id": "V1",
+      "name": "trailer: 30-45 s, 1280x720, h264 yuv420p + aac, <= 15 MB, faststart",
+      "detail": {
+        "duration": 43.32,
+        "size": 4205120,
+        "video": "h264 1280x720 yuv420p",
+        "audio": "aac"
+      },
+      "pass": true
+    },
+    {
+      "id": "W1",
+      "name": "website desktop: loads clean, all sections, Play now -> ./play/, no horizontal overflow, images load",
+      "detail": {
+        "images": "all loaded",
+        "overflow": {
+          "sw": 1280,
+          "iw": 1280,
+          "bw": 1280
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W2",
+      "name": "website trailer plays in the page: readyState >= 3 and currentTime advances",
+      "detail": {
+        "readyState": 4,
+        "t0": 0,
+        "t1": 1.937191,
+        "duration": 43.32,
+        "w": 1280,
+        "h": 720,
+        "src": "media/trailer.mp4"
+      },
+      "pass": true
+    },
+    {
+      "id": "W3",
+      "name": "website phone (Pixel 7, Chromium emulation): no horizontal overflow, Play now visible and tappable",
+      "detail": {
+        "overflow": {
+          "sw": 412,
+          "iw": 412,
+          "bw": 412
+        },
+        "playNowBox": {
+          "x": 17.59375,
+          "y": 371.40625,
+          "width": 376.8125,
+          "height": 61.84375
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W4",
+      "name": "website phone (iPhone 13, Chromium emulation): no horizontal overflow, Play now visible and tappable",
+      "detail": {
+        "overflow": {
+          "sw": 390,
+          "iw": 390,
+          "bw": 390
+        },
+        "playNowBox": {
+          "x": 17.59375,
+          "y": 359.671875,
+          "width": 354.8125,
+          "height": 61.84375
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W5",
+      "name": "website locales: en-US English; zh-CN / zh-TW / zh-HK Simplified Chinese",
+      "detail": {
+        "en-US": {
+          "lang": "en",
+          "title": "Puffling Flight",
+          "html": "en"
+        },
+        "zh-CN": {
+          "lang": "zh",
+          "title": "小海鹦飞飞",
+          "html": "zh-Hans"
+        },
+        "zh-TW": {
+          "lang": "zh",
+          "title": "小海鹦飞飞",
+          "html": "zh-Hans"
+        },
+        "zh-HK": {
+          "lang": "zh",
+          "title": "小海鹦飞飞",
+          "html": "zh-Hans"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "W6",
+      "name": "website language toggle: switches instantly, persists after reload, and the game opens in the same language",
+      "pass": true
+    },
+    {
+      "id": "W7",
+      "name": "website Play now (desktop click) lands on /play/ and the game is playable",
+      "detail": {
+        "url": "play/"
+      },
+      "pass": true
+    },
+    {
+      "id": "G1",
+      "name": "game desktop: loads clean at /play/, English menu",
+      "pass": true
+    },
+    {
+      "id": "G2",
+      "name": "game: start by mouse click, flap rises, columns scroll, score increments, collision -> game over, restart, best persists",
+      "detail": {
+        "scoreReached": 4,
+        "overScore": 4,
+        "bestAfterReload": 4
+      },
+      "pass": true
+    },
+    {
+      "id": "G3",
+      "name": "game: start with Space key, Space flaps, P pauses/resumes",
+      "pass": true
+    },
+    {
+      "id": "G4",
+      "name": "game audio: no audio before input; after a gesture AudioContext running + music rendered; M and button mute",
+      "detail": {
+        "audioState": "running",
+        "audioRenderMs": 393
+      },
+      "pass": true
+    },
+    {
+      "id": "G5",
+      "name": "game locales: en-US English; zh-CN / zh-TW / zh-HK Simplified Chinese; EN/中文 chip toggles",
+      "detail": {
+        "en-US": {
+          "lang": "en",
+          "title": "Puffling Flight"
+        },
+        "zh-CN": {
+          "lang": "zh",
+          "title": "小海鹦飞飞"
+        },
+        "zh-TW": {
+          "lang": "zh",
+          "title": "小海鹦飞飞"
+        },
+        "zh-HK": {
+          "lang": "zh",
+          "title": "小海鹦飞飞"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "G6",
+      "name": "game phone (Pixel 7, Chromium emulation): real touch taps start + flap, fits without scrolling, playable, game over + restart by tap",
+      "detail": {
+        "sw": 412,
+        "sh": 839,
+        "iw": 412,
+        "ih": 839,
+        "stage": [
+          0,
+          0,
+          412,
+          839
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "G7",
+      "name": "game phone (iPhone 13, Chromium emulation): real touch taps start + flap, fits without scrolling, playable, game over + restart by tap",
+      "detail": {
+        "sw": 390,
+        "sh": 664,
+        "iw": 390,
+        "ih": 664,
+        "stage": [
+          0,
+          0,
+          390,
+          664
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "C1",
+      "name": "cinematic trailer: 30-45 s, 1280x720, h264 yuv420p + aac, <= 20 MB, faststart",
+      "detail": {
+        "duration": 40.8,
+        "size": 8150588,
+        "video": "h264 High 1280x720 yuv420p 25/1",
+        "audio": "aac LC 48000 Hz 2 ch",
+        "bitRate": 1598154
+      },
+      "pass": true
+    },
+    {
+      "id": "C2",
+      "name": "HTTP 200 for the website, cinematic trailer + poster, every poster, gallery still, SVG icon, font, old trailer and /play/",
+      "detail": {
+        "urls": 34,
+        "allStatus": 200
+      },
+      "pass": true
+    },
+    {
+      "id": "C3",
+      "name": "hero: cinematic trailer autoplays muted + loops (readyState >= 3, currentTime advancing), poster still-01, unmute + pause controls work",
+      "detail": {
+        "autoplay": true,
+        "muted": true,
+        "loop": true,
+        "playsinline": true,
+        "poster": "media/launch/still-01-dawn-lookout.jpg",
+        "src": "media/cinematic-trailer.mp4",
+        "t0": 0.019367,
+        "readyState": 4,
+        "t1": 1.523709,
+        "duration": 40.8,
+        "w": 1280,
+        "h": 720,
+        "paused": false,
+        "unmute": {
+          "muted": false,
+          "pressed": "false",
+          "label": "Turn the sound off"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "C4",
+      "name": "reduced motion: the hero does not autoplay and shows the still-01 poster",
+      "detail": {
+        "paused": true,
+        "t": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "C5",
+      "name": "posters + gallery + logos + end band all load (naturalWidth > 0); feature icons are the pack SVGs in the chip, aria-hidden, no emoji left",
+      "detail": {
+        "images": 21,
+        "posters": 3,
+        "stills": 6,
+        "icons": 6,
+        "fontsLoaded": [
+          "Lilita One",
+          "ZCOOL KuaiLe"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "C6",
+      "name": "lightbox: poster opens large, arrow keys page, Esc closes; \"Watch trailer\" plays the cinematic cut with sound in the dialog",
+      "detail": {
+        "poster": "media/posters/poster-02-character.webp",
+        "next": "media/posters/poster-03-now-playing.webp",
+        "cinematic": {
+          "muted": false,
+          "t": 0.808035,
+          "heroPaused": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "C7-desktop",
+      "name": "desktop: en-US English, zh-CN / zh-TW / zh-HK Simplified Chinese, toggle both ways, no horizontal overflow, all images load, hero playing, Play now -> /play/",
+      "detail": {
+        "en-US": {
+          "lang": "en",
+          "h2": "Features",
+          "end": "logo-en-1200.webp"
+        },
+        "zh-CN": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        },
+        "zh-TW": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        },
+        "zh-HK": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "C7-Pixel7",
+      "name": "Pixel 7: en-US English, zh-CN / zh-TW / zh-HK Simplified Chinese, toggle both ways, no horizontal overflow, all images load, hero playing, Play now -> /play/",
+      "detail": {
+        "en-US": {
+          "lang": "en",
+          "h2": "Features",
+          "end": "logo-en-1200.webp"
+        },
+        "zh-CN": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        },
+        "zh-TW": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        },
+        "zh-HK": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "C7-iPhone13",
+      "name": "iPhone 13: en-US English, zh-CN / zh-TW / zh-HK Simplified Chinese, toggle both ways, no horizontal overflow, all images load, hero playing, Play now -> /play/",
+      "detail": {
+        "en-US": {
+          "lang": "en",
+          "h2": "Features",
+          "end": "logo-en-1200.webp"
+        },
+        "zh-CN": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        },
+        "zh-TW": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        },
+        "zh-HK": {
+          "lang": "zh",
+          "h2": "游戏特色",
+          "end": "logo-zh-1200.webp"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "C8",
+      "name": "old gameplay trailer further down still plays (readyState >= 3, currentTime advancing) and sits below the posters",
+      "detail": {
+        "readyState": 4,
+        "t0": 0,
+        "t1": 1.737063,
+        "src": "media/trailer.mp4",
+        "order": [
+          "hero",
+          "posters",
+          "trailer",
+          "gallery",
+          "features",
+          "how",
+          "endband"
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "finished": "2026-10-26T13:24:45.560Z",
+  "pass": 26,
+  "fail": 0
+}

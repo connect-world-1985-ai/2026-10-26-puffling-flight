@@ -1,0 +1,444 @@
+{
+ "about": "Cinematic launch trailer, following the UI/UX launch-art pack shot list (ART.md section 6). 100 BPM: 1 beat = 0.6 s, 1 bar = 4 beats = 2.4 s, 17 bars = 40.8 s. Rendered at 1280x720 (720p cap).",
+ "pack": "../2026-10-26-puffling-flight-launch-art",
+ "bpm": 100,
+ "fonts_dir": "{pack}/fonts",
+ "build_dir": "test-output/cinematic/build-final",
+ "output": "media/cinematic-trailer.mp4",
+ "poster": "media/cinematic-trailer-poster.jpg",
+ "poster_time": 36.0,
+ "crf": 19,
+ "shots": [
+  {
+   "id": "1 cold open: still-01 dawn lookout",
+   "kind": "still",
+   "src": "{pack}/stills/still-01-dawn-lookout.png",
+   "beats": 4,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "focus": [
+    [
+     0.5,
+     0.5
+    ],
+    [
+     0.22,
+     0.55
+    ]
+   ],
+   "fade_in": 0.6
+  },
+  {
+   "id": "2 get ready at dawn, bird crop 1.3x, flap on beat 4",
+   "kind": "clip",
+   "session": "ready",
+   "at": "firstFlap",
+   "offset": -1.85,
+   "beats": 4,
+   "zoom": [
+    1.3,
+    1.3
+   ],
+   "focus": [
+    [
+     0.373,
+     0.45
+    ],
+    [
+     0.373,
+     0.45
+    ]
+   ],
+   "event_sfx": true
+  },
+  {
+   "id": "3 still-02 first flap, pull back",
+   "kind": "still",
+   "src": "{pack}/stills/still-02-first-flap.png",
+   "beats": 2,
+   "zoom": [
+    1.06,
+    1.0
+   ],
+   "focus": [
+    [
+     0.5,
+     0.56
+    ],
+    [
+     0.5,
+     0.46
+    ]
+   ],
+   "sfx": [
+    [
+     "flap",
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "id": "4 card: One button / 一个按键",
+   "kind": "card",
+   "src": "{pack}/titlecards/tc-01-one-button.png",
+   "bg": "#0d1126",
+   "beats": 2
+  },
+  {
+   "id": "5 first flaps at dawn, first gap on b3",
+   "kind": "clip",
+   "session": "ready",
+   "at_score": 1,
+   "offset": -1.25,
+   "beats": 4,
+   "event_sfx": true
+  },
+  {
+   "id": "6 still-03 through the gap, push in",
+   "kind": "still",
+   "src": "{pack}/stills/still-03-through-the-gap.png",
+   "beats": 2,
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "focus": [
+    [
+     0.55,
+     0.5
+    ],
+    [
+     0.6,
+     0.48
+    ]
+   ]
+  },
+  {
+   "id": "7 score 9->10, dawn blends to day (1.6x)",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 10,
+   "offset": -0.25,
+   "beats": 2,
+   "speed": 1.6,
+   "event_sfx": true
+  },
+  {
+   "id": "8 card: Endless sky / 无尽天空 over blurred still-03",
+   "kind": "card",
+   "src": "{pack}/titlecards/tc-02-endless-sky.png",
+   "bg": "still:{pack}/stills/still-03-through-the-gap.png",
+   "beats": 2
+  },
+  {
+   "id": "9 phone portrait, 中文 UI",
+   "kind": "clip",
+   "session": "phonezh",
+   "at_score": 1,
+   "offset": -0.6,
+   "beats": 2,
+   "event_sfx": true
+  },
+  {
+   "id": "10 still-04 sunset run, pan with the puffin",
+   "kind": "still",
+   "src": "{pack}/stills/still-04-sunset-run.png",
+   "beats": 4,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    [
+     0.4,
+     0.45
+    ],
+    [
+     0.62,
+     0.45
+    ]
+   ]
+  },
+  {
+   "id": "11 sunset, close pass",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 22,
+   "offset": -0.6,
+   "beats": 2,
+   "event_sfx": true
+  },
+  {
+   "id": "12 score 29->30, blend into night (1.6x)",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 30,
+   "offset": -0.15,
+   "beats": 1,
+   "speed": 1.6
+  },
+  {
+   "id": "13 one beat of black silence",
+   "kind": "black",
+   "bg": "black",
+   "beats": 1
+  },
+  {
+   "id": "14 DROP: still-07 dawn to night, white flash",
+   "kind": "still",
+   "src": "{pack}/stills/still-07-dawn-to-night.png",
+   "beats": 4,
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "focus": [
+    [
+     0.5,
+     0.5
+    ],
+    [
+     0.55,
+     0.5
+    ]
+   ],
+   "flash": true,
+   "sfx": [
+    [
+     "score",
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "id": "15 card: From dawn to night / 从黎明飞到深夜 over blurred still-07",
+   "kind": "card",
+   "src": "{pack}/titlecards/tc-03-dawn-to-night.png",
+   "bg": "still:{pack}/stills/still-07-dawn-to-night.png",
+   "beats": 4
+  },
+  {
+   "id": "16 night, stars and moon",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 32,
+   "offset": -0.5,
+   "beats": 2,
+   "event_sfx": true
+  },
+  {
+   "id": "17 still-05 lighthouse beam, push toward the puffin",
+   "kind": "still",
+   "src": "{pack}/stills/still-05-lighthouse-night.png",
+   "beats": 2,
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "focus": [
+    [
+     0.45,
+     0.45
+    ],
+    [
+     0.66,
+     0.45
+    ]
+   ]
+  },
+  {
+   "id": "18 quick: day pass",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 15,
+   "offset": -0.3,
+   "beats": 1,
+   "sfx": [
+    [
+     "score",
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "id": "19 quick: sunset near-miss",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 24,
+   "offset": -0.3,
+   "beats": 1,
+   "sfx": [
+    [
+     "score",
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "id": "20 quick: bobbing columns (25+)",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 27,
+   "offset": -0.3,
+   "beats": 1,
+   "sfx": [
+    [
+     "score",
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "id": "21 quick: night pass",
+   "kind": "clip",
+   "session": "run",
+   "at_score": 34,
+   "offset": -0.3,
+   "beats": 1,
+   "sfx": [
+    [
+     "score",
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "id": "22 still-06 hero close-up, push toward the eye",
+   "kind": "still",
+   "src": "{pack}/stills/still-06-hero-closeup.png",
+   "beats": 2,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    [
+     0.45,
+     0.45
+    ],
+    [
+     0.5,
+     0.32
+    ]
+   ]
+  },
+  {
+   "id": "23 card: How far can you fly? over blurred still-06 (right half)",
+   "kind": "card",
+   "src": "{pack}/titlecards/tc-04-how-far.png",
+   "bg": "still:{pack}/stills/still-06-hero-closeup.png",
+   "bg_focus": [
+    0.85,
+    0.5
+   ],
+   "beats": 2
+  },
+  {
+   "id": "24 crash: hit, splash, gold medal + New best",
+   "kind": "clip",
+   "session": "gold",
+   "at": "hit",
+   "offset": -0.15,
+   "beats": 4,
+   "event_sfx": true
+  },
+  {
+   "id": "25-26 end card tc-05 over blurred still-01, fade to black (no URL line: the Pages host is offline)",
+   "kind": "end",
+   "src": "{pack}/titlecards/tc-05-endcard-play-now.png",
+   "bg": "still:{pack}/stills/still-01-dawn-lookout.png",
+   "beats": 12,
+   "fade_out": 1.2
+  }
+ ],
+ "music": {
+  "stems": "test-output/cinematic/stems",
+  "bar": 2.4,
+  "layers": {
+   "arp": [
+    [
+     0,
+     18.6
+    ]
+   ],
+   "bass": [
+    [
+     4.8,
+     18.6
+    ]
+   ],
+   "hats": [
+    [
+     9.6,
+     18.6
+    ]
+   ],
+   "snare": [
+    [
+     9.6,
+     16.8
+    ]
+   ],
+   "kick": [
+    [
+     14.4,
+     18.6
+    ]
+   ]
+  },
+  "arp_sweep": [
+   0,
+   4.8,
+   500,
+   2300
+  ],
+  "seabed": [
+   0,
+   4.8,
+   -18
+  ],
+  "roll": [
+   16.8,
+   18.0,
+   18.6
+  ],
+  "riser": [
+   "swoosh",
+   18.0
+  ],
+  "silence": [
+   18.6,
+   19.2
+  ],
+  "drop": [
+   19.2,
+   31.2
+  ],
+  "music_cuts": [
+   [
+    31.2,
+    33.6
+   ]
+  ],
+  "resolve": [
+   33.6,
+   40.8
+  ],
+  "logo_best": 33.6,
+  "fade_out": 1.2,
+  "music_gain": 1.0,
+  "sfx_gain": 0.55,
+  "build_db": [
+   -7,
+   -3
+  ]
+ }
+}
