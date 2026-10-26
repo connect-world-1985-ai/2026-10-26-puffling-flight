@@ -54,7 +54,7 @@
       pageTitle: '小海鹦飞飞 · 现已上线',
       skip: '跳到正文', title: '小海鹦飞飞', ariaNav: '页面导航',
       navPosters: '海报', navTrailer: '实机', navGallery: '剧照', navFeatures: '特色', navHow: '玩法',
-      playShort: '开玩', langToggle: 'EN', ariaLang: '切换语言为英文',
+      playShort: '游玩', langToggle: 'EN', ariaLang: '切换语言为英文',
       playNowEn: 'Play now', watchTrailer: '观看预告片',
       heroFine: '浏览器免费畅玩 · 手机、平板、电脑都能玩 · English / 中文',
       heroNote: '电影预告片 · 静音自动播放 · 循环',

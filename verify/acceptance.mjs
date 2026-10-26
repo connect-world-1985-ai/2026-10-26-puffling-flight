@@ -84,7 +84,7 @@ await check('W1', 'website desktop: loads clean, all sections, Play now -> ./pla
   await page.waitForLoadState('networkidle');
   for (const sel of ['.hero #hero-video', '#posters .posters', '#trailer video', '#gallery .stills', '#gallery .gallery', '#features .cards', '#how .steps', '.endband']) ok(await page.$(sel), 'missing ' + sel);
   ok((await page.getAttribute('#play-now', 'href')) === './play/', 'play-now href');
-  ok((await page.textContent('#play-now')).trim() === 'Play now 立即开玩', 'play-now text');
+  ok((await page.textContent('#play-now')).trim() === 'Play now 立即游玩', 'play-now text');
   ok((await page.getAttribute('#trailer video', 'poster')) === 'media/trailer-poster.png', 'poster');
   const ov = await overflow(page); ok(ov.sw <= ov.iw, 'horizontal overflow ' + JSON.stringify(ov));
   await page.evaluate(async () => { for (const i of document.images) { i.loading = 'eager'; } window.scrollTo(0, document.body.scrollHeight); });
@@ -375,7 +375,7 @@ for (const [dname, dopts] of P2_DEV) {
       seen[loc] = { lang: s.lang, h2: s.h2, end: s.end.split('/').pop() };
       ok(zh ? (s.lang === 'zh' && s.html === 'zh-Hans' && s.brand === '小海鹦飞飞' && s.h2 === '游戏特色' && s.sub === 'Features' && s.f1 === '从清晨到夜晚' && s.end.includes('logo-zh'))
             : (s.lang === 'en' && s.html === 'en' && s.brand === 'Puffling Flight' && s.h2 === 'Features' && s.sub === '游戏特色' && s.f1 === 'Dawn to night' && s.end.includes('logo-en')), loc + ' ' + JSON.stringify(s));
-      ok(s.play === 'Play now 立即开玩' && s.href === './play/', 'play button ' + s.play);
+      ok(s.play === 'Play now 立即游玩' && s.href === './play/', 'play button ' + s.play);
       ok(s.sw <= s.iw && s.bw <= s.iw, 'horizontal overflow ' + JSON.stringify([s.sw, s.bw, s.iw]));
       const tag = dname.replace(/ /g, '');
       if (loc === 'en-US' || loc === 'zh-CN') {

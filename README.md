@@ -135,16 +135,18 @@ extracted by the plan's own extractor (`CHECKSUMS_OK 18`). Differences:
 
 | # | Gap | Decision |
 |---|---|---|
-| 11 | **Wording mismatch:** the designer's end card `tc-05` (and `WEBSITE.md`) read **Play now / 立即游玩**; the owner's brief says **Play now / 立即开玩** | The pack is not edited: the trailer's end card shows `tc-05` as delivered (**立即游玩**). The website's Play-now buttons use the brief's **立即开玩** (it fits the design). Flagged for the project manager and the designer to pick one |
+| 11 | **Wording mismatch (resolved):** the designer's end card `tc-05` and `WEBSITE.md` read **Play now / 立即游玩**; the owner's brief said **Play now / 立即开玩** | Resolved by the project manager's decision (21:27): **立即游玩 everywhere**. The website buttons and the top-bar short label now read 立即游玩 / 游玩, matching `tc-05` in the trailer (not re-rendered). The game in `play/` never used 开玩 |
 | 12 | `WEBSITE.md` asks for a 1920×1080 hero video plus a 1280×720 one | Only 1280×720 is rendered (the owner's 720p cap); the one file serves every screen |
 | 13 | `WEBSITE.md` links the lightbox download to the 1.1–1.4 MB `.png` poster masters | Linked the pack's optimised `.jpg` (184–228 KB); the page shows the `.webp` (109–141 KB). The `.png` masters stay in the pack only |
-| 14 | The pack's posters carry the GitHub Pages address in small print, and the host is currently unavailable | Posters used unchanged (pack is read-only). The trailer's end card has no address line (removed from the shot list) |
+| 14 | The first poster export printed the GitHub Pages address on poster-01 and poster-03, and the trailer's end card had an optional address line | **Resolved:** the designer re-issued poster-01 and poster-03 (21:42) with the line 'PLAY FREE IN YOUR BROWSER · 浏览器免费畅玩' instead of the address; copied into `media/posters/` (`.webp` + `.jpg`). poster-02 never had an address and is unchanged. No poster, title card, logo, hero still or website text shows a URL |
+| 14b | `ART.md` row 26 now asks the end card to carry the free-in-browser line instead of the address | Trailer **not re-rendered** (project manager's decision): the address line was already left out. The designer's `tc-05` end card itself already prints 'FREE IN YOUR BROWSER · 浏览器免费畅玩' (visible in `verify/frames/cine-37.0-endcard.jpg`); only the extra small line under it, from row 26, is missing |
 | 15 | The hero loops the whole cinematic cut, gameplay HUD included, behind the centred logo | A soft radial veil over the video behind the title, on top of the pack's gradient scrim; poster frame is still-01, never still-07 (still-07 only in the gallery and in the trailer's drop, as in the shot list) |
 | 16 | "▶ Watch trailer" target | Opens the cinematic cut with sound in a `<dialog>` lightbox (hero pauses, resumes on close) |
 | 17 | Where the screenshots go | Kept below the key-art stills in the Gallery section |
 | 18 | Pack's prebuilt web font subsets vs this page's text | Re-subsetted from the pack's OFL TTFs to exactly the site's characters (`tools/subset-fonts.py`): 6.5 KB + 35 KB; Noto Sans SC kept off the site (print-only, per `WEBSITE.md`) |
 | 19 | The pack's icon `.svg` files carry the standard `xmlns="http://www.w3.org/2000/svg"` identifier | Kept in `assets/icons/` as delivered (it is a namespace name, never fetched); the inline copies in `index.html` drop it, so the page has no `http(s)://` strings |
 | 20 | GitHub account suspended during phase 2 (403 / Pages 404) | Phase 2 is committed **locally only**, not pushed; verified against a local static server (`verify/static-server.mjs`, Range support, real MIME types) as a Pages stand-in |
+| 21 | Local-only screenshots folder `verify/shots-local-server/` is 38 MB of full-size PNGs | Kept on disk, added to `.gitignore` (the only change to the plan's `.gitignore`); downscaled JPEG copies are committed in `verify/shots-launch/` |
 
 Rough share invented by the builder: **0 %** of the game itself (plan code used as-is); about **35 %** of the whole repo
 by decisions, all of it in the website, trailer and verification that the plan never covered.

@@ -1,5 +1,5 @@
 {
-  "identical": 15,
+  "identical": 14,
   "total": 19,
   "rows": [
     {
@@ -110,16 +110,16 @@
     {
       "planPath": ".gitignore",
       "repoPath": ".gitignore",
-      "identical": true,
+      "identical": false,
       "plan": "84cd6aba0bc2387660a5831ddcf6494fdf14bfe9d32093f871f1231d3353fc67",
-      "actual": "84cd6aba0bc2387660a5831ddcf6494fdf14bfe9d32093f871f1231d3353fc67"
+      "actual": "a486a223309dbdac32874aaa6d6ce521c6894d6a380cb6b753acc6e9417eef79"
     },
     {
       "planPath": "README.md",
       "repoPath": "README.md",
       "identical": false,
       "plan": "a046ec10e3dbd7edb8391ff985cce6752eb5dadb656a3cba0bc135540fac64a8",
-      "actual": "0f1962b80802077575a41dc08c8178e517a524b37009d74c61ab9fc13a4a3928"
+      "actual": "cf77ef32a664eccef8b51c3c16521b49827d881aa7988c7111cf6ffc453902d9"
     },
     {
       "planPath": "LICENSE",
