@@ -6,8 +6,9 @@ Build (ART.md section 7, 100 BPM, 1 bar = 2.4 s):
   bars 1-2  arp only, low-pass sweep 500 -> 2300 Hz, quiet sea bed (splash SFX slowed 0.5x, -18 dB)
   bars 3-4  + bass          bars 5-6  + hats + snare          bar 7  + kick (full groove, no lead)
   bar 8     snare roll (8ths -> 16ths) with the game's snare, swoosh riser on beat 3, beat 4 total silence
-  bar 9     THE DROP: the loop restarts at bar 1 with every layer + lead melody, through bar 13
-  bar 14    hard cut of the music on the crash (hit / splash / best come from the real gameplay events)
+  bar 9     THE DROP: the loop restarts at bar 1 with every layer + lead melody, through bar 13;
+            extra kick/snare/sub-boom accents on the title-drop downbeats for punch
+  bar 14    hard cut of the music on the crash (hit / splash / best + a climax boom)
   bars 15-17 resolve on C under the logo (bass + arp on C, last lead phrase landing on C), 'best' an octave up,
             short room tail, fade to black over the last 1.2 s
 Usage: python3 src/trailer/score.py cues.json out.wav
@@ -96,10 +97,29 @@ place(fx, sfx[A['riser'][0]], A['riser'][1], 1.0, 0)
 # the rise: pre-drop music climbs from build_db[0] to build_db[1] so the drop lands clearly louder
 b_db0, b_db1 = A.get('build_db', [0, 0]); kd = int(drop[0] * SR)
 music[:, :kd] *= 10 ** (np.linspace(b_db0, b_db1, kd) / 20)
-# THE DROP: every layer + lead from loop bar 1
+# THE DROP: every layer + lead from loop bar 1 (kick/bass/snare a touch hotter for punch)
 d0, d1 = drop
+DROP_GAIN = {'arp': 1.05, 'bass': 1.3, 'kick': 1.65, 'snare': 1.4, 'hats': 1.12, 'lead': 1.22}
 for name in ('arp', 'bass', 'kick', 'snare', 'hats', 'lead'):
-    place(music, window(stem[name], 0, d0, d1), d0, 1.0, PAN[name])
+    place(music, window(stem[name], 0, d0, d1), d0, DROP_GAIN[name], PAN[name])
+# Impact accents: one heavy title-drop downbeat + a lighter hit one bar later; boom on the crash climax.
+kick_hit = window(stem['kick'], 0, 0, 0.22, 0.002)
+
+def sub_boom(dur=0.48, f0=55, f1=34):
+    n = int(dur * SR); t = np.arange(n) / SR
+    env = np.exp(-t * 8.0) * (1 - np.exp(-t * 100))
+    return np.sin(2 * np.pi * (f0 * t + (f1 - f0) * t * t / (2 * max(dur, 1e-9)))) * env
+
+boom = sub_boom()
+for dt, g in ((0.0, 1.35), (bar, 0.95)):
+    place(music, kick_hit, d0 + dt, g, 0)
+    place(music, boom, d0 + dt, g * 0.85, 0)
+    place(music, hit_snare, d0 + dt, g * 0.7, 0.05)
+crash_t = A.get('music_cuts', [[None]])[0][0]
+if crash_t is not None:
+    place(fx, boom, crash_t, 1.45, 0)
+    place(fx, kick_hit, crash_t, 1.1, 0)
+    place(fx, hit_snare, crash_t + 0.02, 0.85, 0.05)
 # resolve under the logo, with a short room tail, then fade
 v0, v1 = A['resolve']
 res = window(stem['resolve'], 0, 0, v1 - v0, 0.004)
@@ -120,11 +140,13 @@ for c0, c1 in A.get('music_cuts', []):
 mix = music * A.get('music_gain', 1.0) + fx * A.get('sfx_gain', 0.6)
 fo = int(A.get('fade_out', 1.2) * SR); mix[:, -fo:] *= np.linspace(1, 0, fo) ** 1.3
 fi = int(0.6 * SR); mix[:, :fi] *= np.linspace(0, 1, fi)
-# level: loudest 2.4 s window to about -14 dBFS RMS, gentle soft-clip above 0.9
-w = int(bar * SR); rms = max(np.sqrt((mix[:, i:i + w] ** 2).mean()) for i in range(0, N - w, w // 2))
-mix *= 10 ** (-14 / 20) / rms
-over = np.abs(mix) > 0.9
-mix[over] = np.sign(mix[over]) * (0.9 + 0.09 * np.tanh((np.abs(mix[over]) - 0.9) / 0.09))
+# level: 75th-percentile 2.4 s window to about -14 dBFS RMS; soft-clip above 0.92
+w = int(bar * SR)
+wins = [np.sqrt((mix[:, i:i + w] ** 2).mean()) for i in range(0, N - w, w // 2)]
+rms = float(np.percentile(wins, 75))
+mix *= 10 ** (-14 / 20) / max(rms, 1e-9)
+over = np.abs(mix) > 0.92
+mix[over] = np.sign(mix[over]) * (0.92 + 0.07 * np.tanh((np.abs(mix[over]) - 0.92) / 0.07))
 with wave.open(sys.argv[2], 'w') as f:
     f.setnchannels(2); f.setsampwidth(2); f.setframerate(SR)
     f.writeframes((np.clip(mix.T, -1, 1) * 32767).astype('<i2').tobytes())

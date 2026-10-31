@@ -81,7 +81,7 @@
    ]
   },
   {
-   "id": "4 card: One button / 一个按键",
+   "id": "4 card: One button / \u4e00\u4e2a\u6309\u952e",
    "kind": "card",
    "src": "{pack}/titlecards/tc-01-one-button.png",
    "bg": "#0d1126",
@@ -127,14 +127,14 @@
    "event_sfx": true
   },
   {
-   "id": "8 card: Endless sky / 无尽天空 over blurred still-03",
+   "id": "8 card: Endless sky / \u65e0\u5c3d\u5929\u7a7a over blurred still-03",
    "kind": "card",
    "src": "{pack}/titlecards/tc-02-endless-sky.png",
    "bg": "still:{pack}/stills/still-03-through-the-gap.png",
    "beats": 2
   },
   {
-   "id": "9 phone portrait, 中文 UI",
+   "id": "9 phone portrait, \u4e2d\u6587 UI",
    "kind": "clip",
    "session": "phonezh",
    "at_score": 1,
@@ -215,7 +215,7 @@
    ]
   },
   {
-   "id": "15 card: From dawn to night / 从黎明飞到深夜 over blurred still-07",
+   "id": "15 card: From dawn to night / \u4ece\u9ece\u660e\u98de\u5230\u6df1\u591c over blurred still-07",
    "kind": "card",
    "src": "{pack}/titlecards/tc-03-dawn-to-night.png",
    "bg": "still:{pack}/stills/still-07-dawn-to-night.png",
@@ -434,10 +434,10 @@
   ],
   "logo_best": 33.6,
   "fade_out": 1.2,
-  "music_gain": 1.0,
+  "music_gain": 1.05,
   "sfx_gain": 0.55,
   "build_db": [
-   -7,
+   -10,
    -3
   ]
  }

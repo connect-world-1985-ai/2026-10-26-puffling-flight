@@ -2,7 +2,7 @@
   "label": "local-server",
   "root": "http://127.0.0.1:8765/",
   "browser": "chrome 156.0.8078.47",
-  "started": "2026-10-31T07:33:42.597Z",
+  "started": "2026-10-31T07:52:08.326Z",
   "checks": [
     {
       "id": "W0",
@@ -17,7 +17,7 @@
       "name": "trailer: 30-45 s, 1280x720, h264 yuv420p + aac, <= 15 MB, faststart",
       "detail": {
         "duration": 43.32,
-        "size": 4205120,
+        "size": 4557432,
         "video": "h264 1280x720 yuv420p",
         "audio": "aac"
       },
@@ -42,7 +42,7 @@
       "detail": {
         "readyState": 4,
         "t0": 0,
-        "t1": 1.947023,
+        "t1": 1.947308,
         "duration": 43.32,
         "w": 1280,
         "h": 720,
@@ -151,7 +151,7 @@
       "name": "game audio: no audio before input; after a gesture AudioContext running + music rendered; M and button mute",
       "detail": {
         "audioState": "running",
-        "audioRenderMs": 387
+        "audioRenderMs": 398
       },
       "pass": true
     },
@@ -217,10 +217,10 @@
       "name": "cinematic trailer: 30-45 s, 1280x720, h264 yuv420p + aac, <= 20 MB, faststart",
       "detail": {
         "duration": 40.8,
-        "size": 8150588,
+        "size": 8158908,
         "video": "h264 High 1280x720 yuv420p 25/1",
         "audio": "aac LC 48000 Hz 2 ch",
-        "bitRate": 1598154
+        "bitRate": 1599785
       },
       "pass": true
     },
@@ -243,9 +243,9 @@
         "playsinline": true,
         "poster": "media/launch/still-01-dawn-lookout.jpg",
         "src": "media/cinematic-trailer.mp4",
-        "t0": 0.012663,
+        "t0": 0.019062,
         "readyState": 4,
-        "t1": 1.515641,
+        "t1": 1.502682,
         "duration": 40.8,
         "w": 1280,
         "h": 720,
@@ -290,7 +290,7 @@
         "next": "media/posters/poster-03-now-playing.webp",
         "cinematic": {
           "muted": false,
-          "t": 0.816895,
+          "t": 0.809955,
           "heroPaused": true
         }
       },
@@ -383,7 +383,7 @@
       "detail": {
         "readyState": 4,
         "t0": 0,
-        "t1": 1.747312,
+        "t1": 1.744724,
         "src": "media/trailer.mp4",
         "order": [
           "hero",
@@ -398,7 +398,7 @@
       "pass": true
     }
   ],
-  "finished": "2026-10-31T07:36:04.674Z",
+  "finished": "2026-10-31T07:54:24.368Z",
   "pass": 26,
   "fail": 0
 }

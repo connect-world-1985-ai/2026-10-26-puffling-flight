@@ -147,6 +147,8 @@ extracted by the plan's own extractor (`CHECKSUMS_OK 18`). Differences:
 | 19 | The pack's icon `.svg` files carry the standard `xmlns="http://www.w3.org/2000/svg"` identifier | Kept in `assets/icons/` as delivered (it is a namespace name, never fetched); the inline copies in `index.html` drop it, so the page has no `http(s)://` strings |
 | 20 | GitHub account suspended during phase 2 (403 / Pages 404) | Phase 2 is committed **locally only**, not pushed; verified against a local static server (`verify/static-server.mjs`, Range support, real MIME types) as a Pages stand-in |
 | 21 | Local-only screenshots folder `verify/shots-local-server/` is 38 MB of full-size PNGs | Kept on disk, added to `.gitignore` (the only change to the plan's `.gitignore`); downscaled JPEG copies are committed in `verify/shots-launch/` |
+| 22 | Gameplay trailer `media/trailer.mp4` integrated loudness was about **−28.8 LUFS** (much quieter than the cinematic cut) | Remixed **audio only** (video stream byte-identical, MD5 `0855ff75…`) to about **−16.3 LUFS**, LRA 5.0 LU, true peak **−1.0 dBTP**; still 720p / 43.32 s / ~4.4 MB |
+| 23 | Cinematic score: true peak **+0.5 dBTP** and title-drop contrast only ~+2.7 dB over the roll (not clearly 有冲击力) | Technical review in `verify/cinematic-audio-review.md` + curve PNG. Strengthened `score.py` (DROP/crash kick+snare+sub-boom), remuxed audio onto unchanged picture, normalised to about **−15.0 LUFS** / LRA 12.0 / TP **−1.5 dBTP**; 720p / 40.8 s / ~7.8 MB |
 
 Rough share invented by the builder: **0 %** of the game itself (plan code used as-is); about **35 %** of the whole repo
 by decisions, all of it in the website, trailer and verification that the plan never covered.
