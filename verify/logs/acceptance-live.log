@@ -1,4 +1,4 @@
-acceptance live at https://connect-world-1985-ai.github.io/2026-10-26-puffling-flight/ (chrome 156.0.8078.47)
+acceptance live at https://connect-world-1985-ai.github.io/2026-10-26-puffling-flight-plan-claude-build-grok/ (chrome 156.0.8078.47)
 PASS V1 trailer: 30-45 s, 1280x720, h264 yuv420p + aac, <= 15 MB, faststart
 PASS W1 website desktop: loads clean, all sections, Play now -> ./play/, no horizontal overflow, images load
 PASS W2 website trailer plays in the page: readyState >= 3 and currentTime advances
