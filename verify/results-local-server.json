@@ -2,7 +2,7 @@
   "label": "local-server",
   "root": "http://127.0.0.1:8765/",
   "browser": "chrome 156.0.8078.47",
-  "started": "2026-10-26T13:43:34.842Z",
+  "started": "2026-10-31T07:33:42.597Z",
   "checks": [
     {
       "id": "W0",
@@ -42,7 +42,7 @@
       "detail": {
         "readyState": 4,
         "t0": 0,
-        "t1": 1.937516,
+        "t1": 1.947023,
         "duration": 43.32,
         "w": 1280,
         "h": 720,
@@ -151,7 +151,7 @@
       "name": "game audio: no audio before input; after a gesture AudioContext running + music rendered; M and button mute",
       "detail": {
         "audioState": "running",
-        "audioRenderMs": 400
+        "audioRenderMs": 387
       },
       "pass": true
     },
@@ -243,9 +243,9 @@
         "playsinline": true,
         "poster": "media/launch/still-01-dawn-lookout.jpg",
         "src": "media/cinematic-trailer.mp4",
-        "t0": 0.030555,
+        "t0": 0.012663,
         "readyState": 4,
-        "t1": 1.534578,
+        "t1": 1.515641,
         "duration": 40.8,
         "w": 1280,
         "h": 720,
@@ -290,7 +290,7 @@
         "next": "media/posters/poster-03-now-playing.webp",
         "cinematic": {
           "muted": false,
-          "t": 0.809537,
+          "t": 0.816895,
           "heroPaused": true
         }
       },
@@ -383,7 +383,7 @@
       "detail": {
         "readyState": 4,
         "t0": 0,
-        "t1": 1.744755,
+        "t1": 1.747312,
         "src": "media/trailer.mp4",
         "order": [
           "hero",
@@ -398,7 +398,7 @@
       "pass": true
     }
   ],
-  "finished": "2026-10-26T13:45:52.308Z",
+  "finished": "2026-10-31T07:36:04.674Z",
   "pass": 26,
   "fail": 0
 }
